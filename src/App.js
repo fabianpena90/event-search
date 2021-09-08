@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import Navbar from './components/layout/Navbar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Alert from './components/layout/Alert';
+import TicketmasterState from './context/ticketmaster/TicketmasterState';
+import AlertState from './context/alert/AlertState';
+import NotFoundPage from './components/pages/NotFoundPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <TicketmasterState>
+      <AlertState>
+        <Router>
+          <Navbar />
+          <div className='container'>
+            <Alert />
+            <Switch>
+              <Route exact path="/" component={Home} /> 
+              <Route path='/about' component={About} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </div>
+        </Router>
+      </AlertState>
+    </TicketmasterState>
   );
 }
 
