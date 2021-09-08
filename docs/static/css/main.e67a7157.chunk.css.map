@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,EACE,oBACF,CAEA,QACE,YACF","file":"main.e67a7157.chunk.css","sourcesContent":["a {\n  text-decoration: none;\n}\n\na:hover {\n  color: tomato;\n}"]}
